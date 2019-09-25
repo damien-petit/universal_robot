@@ -22,4 +22,53 @@
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
 
+  <joint name="daifuku_osaka_frame_joint" type="fixed">
+    <parent link="base_link" />
+    <child link = "daifuku_osaka_frame_link" />
+    <!--origin xyz="0 0 0" rpy="0 0 0" /-->
+    <origin xyz="0.79 -0.68 -0.616" rpy="0.0 0.0 1.57" />
+  </joint>
+  <link name="daifuku_osaka_frame_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_test_movit_script/ur5e_scene/robot_base.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!--add phoxi camera-->
+
+  <xacro:include filename="$(find phoxi_camera)/urdf/PhoXi3Dscanner_values.xacro"/> <!--Scanner values-->
+  <xacro:include filename="$(find phoxi_camera)/urdf/PhoXi3Dscanner_macro.xacro"/>  <!--Scanner macro-->
+
+  <joint name="phoxi_osaka_frame_joint" type="fixed">
+    <parent link="base_link" />
+    <child link = "phoxi_osaka_frame_link" />
+    <!--origin xyz="0 0 0" rpy="0 0 0" /-->
+    <!--origin xyz="0.492 -0.101 0.957" rpy="2.991102168713803 0.019032241296778604 -1.586274049895831" /-->
+    <origin xyz="0.492 -0.101 0.957" rpy="3.124909241602114 0.1507675271923597 1.5864488188586465" />
+  </joint>
+  <link name="phoxi_osaka_frame_link">
+    <visual>
+      <!--origin rpy="0 0 0" xyz="0 0 0"/-->
+      <!--origin rpy="0 ${pi/2} 0" xyz="-0.27 0 0"/-->
+      <origin xyz="-0.274213 0.0299 0.0090044" rpy="0 ${-9.45/180*pi --pi/2} ${pi}" />
+      <!--xacro:PhoXi3DscannerL_default_sensor_origin /-->
+      <geometry>
+        <xacro:PhoXi3DscannerL_meshes />
+        <!--mesh filename="package://my_test_movit_script/ur5e_scene/robot_base.dae"/-->
+      </geometry>
+      <material name="black">
+        <color rgba="0.1 0.1 0.1 0.9"/>
+      </material>
+    </visual>
+  </link>
+
+  <xacro:PhoXi3Dscanner scanner_parent = "base_link" scanner_name = "PhoXi3Dscanner" sensor_parent = "PhoXi3Dscanner" sensor_name = "PhoXi3Dscanner_sensor" >
+      <origin xyz="0 0 0" rpy="0 0 0" /> <!--PhoXi3Dscanner origin-->
+      <xacro:PhoXi3DscannerM_default_sensor_origin /> <!--Extrinsic calibration data-->
+      <xacro:PhoXi3DscannerM_meshes /> <!--meshes-->
+  </xacro:PhoXi3Dscanner>
+
 </robot>
