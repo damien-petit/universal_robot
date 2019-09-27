@@ -44,12 +44,12 @@
 
   <joint name="phoxi_osaka_frame_joint" type="fixed">
     <parent link="base_link" />
-    <child link = "phoxi_osaka_frame_link" />
+    <child link = "PhoXi3Dscanner_sensor" />
     <!--origin xyz="0 0 0" rpy="0 0 0" /-->
     <!--origin xyz="0.492 -0.101 0.957" rpy="2.991102168713803 0.019032241296778604 -1.586274049895831" /-->
     <origin xyz="0.492 -0.101 0.957" rpy="3.124909241602114 0.1507675271923597 1.5864488188586465" />
   </joint>
-  <link name="phoxi_osaka_frame_link">
+  <link name="PhoXi3Dscanner_sensor">
     <visual>
       <!--origin rpy="0 0 0" xyz="0 0 0"/-->
       <!--origin rpy="0 ${pi/2} 0" xyz="-0.27 0 0"/-->
@@ -65,10 +65,10 @@
     </visual>
   </link>
 
-  <xacro:PhoXi3Dscanner scanner_parent = "base_link" scanner_name = "PhoXi3Dscanner" sensor_parent = "PhoXi3Dscanner" sensor_name = "PhoXi3Dscanner_sensor" >
-      <origin xyz="0 0 0" rpy="0 0 0" /> <!--PhoXi3Dscanner origin-->
-      <xacro:PhoXi3DscannerM_default_sensor_origin /> <!--Extrinsic calibration data-->
-      <xacro:PhoXi3DscannerM_meshes /> <!--meshes-->
-  </xacro:PhoXi3Dscanner>
+  <!--xacro:PhoXi3Dscanner scanner_parent = "base_link" scanner_name = "PhoXi3Dscanner" sensor_parent = "PhoXi3Dscanner" sensor_name = "PhoXi3Dscanner_sensor" -->
+      <!--origin xyz="0 0 0" rpy="0 0 0" /--> <!--PhoXi3Dscanner origin-->
+      <!--xacro:PhoXi3DscannerM_default_sensor_origin /--> <!--Extrinsic calibration data-->
+      <!--xacro:PhoXi3DscannerM_meshes /--> <!--meshes-->
+  <!--/xacro:PhoXi3Dscanner-->
 
 </robot>
