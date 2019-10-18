@@ -32,7 +32,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://my_test_movit_script/ur5e_scene/robot_base.dae"/>
+        <mesh filename="package://pick_easy/ur5e_scene/robot_base.dae"/>
       </geometry>
     </visual>
   </link>
@@ -57,7 +57,7 @@
       <!--xacro:PhoXi3DscannerL_default_sensor_origin /-->
       <geometry>
         <xacro:PhoXi3DscannerL_meshes />
-        <!--mesh filename="package://my_test_movit_script/ur5e_scene/robot_base.dae"/-->
+        <!--mesh filename="package://pick_easy/ur5e_scene/robot_base.dae"/-->
       </geometry>
       <material name="black">
         <color rgba="0.1 0.1 0.1 0.9"/>
