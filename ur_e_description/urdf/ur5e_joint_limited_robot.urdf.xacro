@@ -43,6 +43,25 @@
     </visual>
   </link>
 
+  <joint name="daifuku_osaka_frame_target_pick_joint" type="fixed">
+    <parent link = "daifuku_osaka_frame_link" />
+    <child link="target_pick_link" />
+    <!--origin xyz="0 0 0" rpy="0 0 0" /-->
+    <origin xyz="0.5 0.3 0.5 " rpy="0.0 0.0 0" />
+  </joint>
+  <link name="target_pick_link">
+  </link>
+
+  <joint name="daifuku_osaka_frame_target_drop_joint" type="fixed">
+    <parent link = "daifuku_osaka_frame_link" />
+    <child link="target_drop_link" />
+    <!--origin xyz="0 0 0" rpy="0 0 0" /-->
+    <origin xyz="0.86 0.3 0.5 " rpy="0.0 0.0 0" />
+  </joint>
+  <link name="target_drop_link">
+  </link>
+
+
   <!--add phoxi camera-->
 
   <xacro:include filename="$(find phoxi_camera)/urdf/PhoXi3Dscanner_values.xacro"/> <!--Scanner values-->
